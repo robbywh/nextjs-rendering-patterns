@@ -1,8 +1,6 @@
 import { BackButton } from "@/components/BackButton";
 
-export const config = {
-  runtime: 'edge',
-};
+export const runtime = "edge";
 
 export default async function EdgePage() {
   console.log("Edge Rendering: Fetching quote data...");
