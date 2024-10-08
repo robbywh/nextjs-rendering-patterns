@@ -4,7 +4,11 @@ export default async function RSCPage() {
   console.log("RSC: Fetching quote data...");
 
   // Fetching dummy quotes from a public API
-  const res = await fetch('https://dummyjson.com/quotes/1');
+  const res = await fetch('https://dummyjson.com/quotes/random', {
+    headers: {
+      'Cache-Control': 'no-cache',
+    },
+  });
   const quoteData = await res.json();
   
   console.log("RSC: Data fetched successfully");

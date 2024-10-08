@@ -6,6 +6,9 @@ export default async function ISRPage() {
   // Fetch data with the revalidate option for ISR
   const res = await fetch('https://dummyjson.com/quotes/random', {
     next: { revalidate: 10 }, // Revalidate the page every 10 seconds
+    headers: {
+      'Cache-Control': 'no-cache',
+    },
   });
 
   console.log("ISR: Fetch request sent, waiting for response...");

@@ -4,7 +4,11 @@ export default async function SSRPage() {
   console.log("SSR: Starting data fetch from API...");
 
   // Fetch a dummy quote from DummyJSON API
-  const res = await fetch('https://dummyjson.com/quotes/random');
+  const res = await fetch('https://dummyjson.com/quotes/random', {
+    headers: {
+      'Cache-Control': 'no-cache',
+    },
+  });
   console.log("SSR: Fetch request sent, waiting for response...");
 
   const quoteData = await res.json();

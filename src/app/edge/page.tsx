@@ -6,7 +6,11 @@ export default async function EdgePage() {
   console.log("Edge Rendering: Fetching quote data...");
 
   // Fetching dummy quotes from a public API
-  const res = await fetch('https://dummyjson.com/quotes/random');
+  const res = await fetch('https://dummyjson.com/quotes/random', {
+    headers: {
+      'Cache-Control': 'no-cache',
+    },
+  });
   const quoteData = await res.json();
   
   console.log("Edge Rendering: Data fetched successfully");
