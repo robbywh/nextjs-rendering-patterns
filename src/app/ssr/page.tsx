@@ -12,7 +12,6 @@ export default async function SSRPage() {
     },
   });
   console.log("SSR: Fetch request sent, waiting for response...");
-
   const quoteData = await res.json();
   console.log("SSR: Data fetched successfully:", quoteData);
 
