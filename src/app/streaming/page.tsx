@@ -1,21 +1,22 @@
 export const dynamic = 'force-dynamic';
 
 import { BackButton } from '@/components/BackButton';
+import { fetchWithDelay } from '@/utils/global';
 import { Suspense } from 'react';
 
 const Quotes = async () => {
   console.log("Streaming SSR: Fetching quote data...");
   
   // Fetching dummy quotes from a public API
-  const res = await fetch('https://dummyjson.com/quotes/random');
+  const res = await fetchWithDelay('https://dummyjson.com/quotes/random', {}, 2000);
   const quoteData = await res.json();
   
   console.log("Streaming SSR: Data fetched successfully");
 
   return (
     <div className="mt-10 font-bold text-xl text-center max-w-96">
-    {quoteData ? `${quoteData.quote} - ${quoteData.author}` : "Loading..."}
-  </div>
+      {quoteData ? `${quoteData.quote} - ${quoteData.author}` : "Loading..."}
+    </div>
   );
 };
 
@@ -28,7 +29,7 @@ export default function StreamingSSRPage() {
       <p className="text-lg text-center max-w-xl">
         This page streams server-side rendered content in chunks, providing a faster time to first byte.
       </p>
-      <Suspense fallback={<p className="text-lg">Loading quotes...</p>}>
+      <Suspense fallback={<div className="mt-10 font-bold text-xl text-center max-w-96">Loading....</div>}>
         <Quotes />
       </Suspense>
 

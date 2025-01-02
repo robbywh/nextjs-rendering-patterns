@@ -1,12 +1,13 @@
 export const dynamic = 'force-dynamic';
 
 import { BackButton } from "@/components/BackButton";
+import { fetchWithDelay } from "@/utils/global";
 
 export default async function SSRPage() {
   console.log("SSR: Starting data fetch from API...");
 
   // Fetch a dummy quote from DummyJSON API
-  const res = await fetch('https://dummyjson.com/quotes/random');
+  const res = await fetchWithDelay('https://dummyjson.com/quotes/random', {}, 2000);
   console.log("SSR: Fetch request sent, waiting for response...");
   const quoteData = await res.json();
   console.log("SSR: Data fetched successfully:", quoteData);
