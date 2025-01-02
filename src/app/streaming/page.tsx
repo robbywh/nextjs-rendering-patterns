@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { BackButton } from '@/components/BackButton';
 import { Suspense } from 'react';
 
