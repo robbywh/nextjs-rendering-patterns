@@ -26,12 +26,8 @@ export default function HomePage() {
           Streaming SSR
         </Link>
 
-        <Link href="/edge" className="block bg-pink-500 text-white text-center py-6 px-4 rounded-lg shadow-lg hover:bg-pink-600 transition-all">
-          Edge Rendering
-        </Link>
-
-        <Link href="/rsc" className="block bg-indigo-500 text-white text-center py-6 px-4 rounded-lg shadow-lg hover:bg-indigo-600 transition-all">
-          React Server Components
+        <Link href="/ppr" className="block bg-pink-500 text-white text-center py-6 px-4 rounded-lg shadow-lg hover:bg-pink-600 transition-all">
+          Partial Prerendering (PPR)
         </Link>
       </div>
     </main>

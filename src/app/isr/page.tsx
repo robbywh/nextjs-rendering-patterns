@@ -1,15 +1,18 @@
+export const revalidate = 10;
+
 import { BackButton } from "@/components/BackButton";
 
 export default async function ISRPage() {
   console.log("ISR: Starting to fetch data...");
 
   // Fetch data with the revalidate option for ISR
-  const res = await fetch('https://dummyjson.com/quotes/random', {
-    next: { revalidate: 10 }, // Revalidate the page every 10 seconds
-    headers: {
-      'Cache-Control': 'no-cache',
-    },
-  });
+  // const res = await fetch('https://dummyjson.com/quotes/random', {
+  //   next: { revalidate: 10 }, // Revalidate the page every 10 seconds
+  //   headers: {
+  //     'Cache-Control': 'no-cache',
+  //   },
+  // });
+  const res = await fetch('https://dummyjson.com/quotes/random');
 
   console.log("ISR: Fetch request sent, waiting for response...");
 
